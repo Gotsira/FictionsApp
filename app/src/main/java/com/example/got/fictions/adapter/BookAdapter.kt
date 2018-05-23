@@ -8,14 +8,14 @@ import android.widget.BaseAdapter
 import android.content.Intent
 import com.example.got.fictions.R
 import com.example.got.fictions.models.Book
-import com.example.got.fictions.presenter.BookDetails
+import com.example.got.fictions.BookDetails
 import kotlinx.android.synthetic.main.book_entry.view.*
 
 class BookAdapter : BaseAdapter {
     var booksList = ArrayList<Book>()
     var context: Context? = null
 
-    constructor(context: Context, bookssList: ArrayList<Book>) : super() {
+    constructor(context: Context, booksList: ArrayList<Book>) : super() {
         this.context = context
         this.booksList = booksList
     }
@@ -46,7 +46,7 @@ class BookAdapter : BaseAdapter {
             context!!.startActivity(intent)
         }
         bookView.imgBook.setImageResource(book.image!!)
-        bookView.tvName.text = book.name!!
+        bookView.bookName.text = book.name!!
 
         return bookView
     }

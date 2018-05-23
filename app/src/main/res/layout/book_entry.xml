@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="150dp"
     android:layout_height="wrap_content"
-    android:background="#ddd"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="15dp">
+    android:padding="15dp"
+    android:background="#00ffffff">
 
     <ImageView
         android:id="@+id/imgBook"
@@ -15,7 +15,7 @@
         app:srcCompat="@mipmap/ic_launcher_foreground" />
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/bookName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
