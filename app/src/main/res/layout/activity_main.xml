@@ -24,20 +24,4 @@
         android:numColumns="auto_fit"
         android:verticalSpacing="15dp" />
 
-    <!--<android.support.v7.widget.GridLayout-->
-        <!--android:layout_width="395dp"-->
-        <!--android:layout_height="540dp"-->
-        <!--android:layout_marginBottom="8dp"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/searchBar"-->
-        <!--android:id="@+id/grid"-->
-        <!--android:numColumns="3">-->
-
-    <!--</android.support.v7.widget.GridLayout>-->
-
 </LinearLayout>
