@@ -9,7 +9,9 @@ import android.content.Intent
 import com.example.got.fictions.R
 import com.example.got.fictions.models.Book
 import com.example.got.fictions.BookDetails
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.book_entry.view.*
+
 
 class BookAdapter : BaseAdapter {
     var booksList = ArrayList<Book>()
@@ -37,16 +39,16 @@ class BookAdapter : BaseAdapter {
 
         var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var bookView = inflator.inflate(R.layout.book_entry, null)
-        bookView.imgBook.setOnClickListener {
+        bookView.bookName.setOnClickListener {
 
             val intent = Intent(context, BookDetails::class.java)
-            intent.putExtra("name", book.name!!)
+            intent.putExtra("name", book.title!!)
             intent.putExtra("description", book.description!!)
-            intent.putExtra("image", book.image!!)
+            intent.putExtra("image", book.img_url!!)
             context!!.startActivity(intent)
         }
-        bookView.imgBook.setImageResource(book.image!!)
-        bookView.bookName.text = book.name!!
+        Picasso.get().load(book.img_url).into(bookView.imgBook);
+        bookView.bookName.text = book.title!!
 
         return bookView
     }

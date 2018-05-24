@@ -2,33 +2,38 @@ package com.example.got.fictions
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.example.got.fictions.adapter.BookAdapter
-import com.example.got.fictions.models.Book
-import com.example.got.fictions.models.BookRepository
-import com.example.got.fictions.models.MockBookRepository
-import com.example.got.fictions.presenter.BookPresenter
-import com.example.got.fictions.presenter.BookView
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentPagerAdapter
+import com.example.got.fictions.fragment.BookListFragment
+
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), BookView {
+class MainActivity : AppCompatActivity() {
 
 
-    var adapter: BookAdapter? = null
-    private lateinit var repository: BookRepository
-    private var bookList = ArrayList<Book>()
-    private lateinit var presenter: BookPresenter
+    private val bookListFragment: BookListFragment = BookListFragment()
+    private var mSectionsPagerAdapter: ShowAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        repository = MockBookRepository()
-        presenter = BookPresenter(this, repository)
-        presenter.start()
+        mSectionsPagerAdapter = ShowAdapter(supportFragmentManager)
+
+        container.adapter = mSectionsPagerAdapter
+
+
     }
 
-    override fun setBookList(books: ArrayList<Book>) {
-        adapter = BookAdapter(this, books)
-        gvBooks.adapter = adapter
+    inner class ShowAdapter(fm: FragmentManager): FragmentPagerAdapter(fm) {
+        override fun getItem(position: Int): Fragment {
+            return bookListFragment
+        }
+
+        override fun getCount(): Int {
+            return 1
+        }
     }
+
 }
