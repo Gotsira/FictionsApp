@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Fictions</string>
+    <color name="eye">#ffffb3</color>
 </resources>

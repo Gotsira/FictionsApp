@@ -10,7 +10,8 @@ abstract class BookRepository: Observable() {
     abstract fun loadAllBooks()
 
     fun getBooks(): ArrayList<Book> {
-        return bookList
+        var sortedBook = ArrayList(bookList.sortedWith(compareBy({it.title})))
+        return sortedBook
     }
 
     fun filterSorted(searchMsg: String): List<Book> {

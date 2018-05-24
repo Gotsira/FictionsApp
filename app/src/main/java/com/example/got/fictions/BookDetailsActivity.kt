@@ -14,6 +14,7 @@ class BookDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private var tts : TextToSpeech? = null
     private var readAloud : Button? = null
+    private var numeric = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +40,13 @@ class BookDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
                 hash.put(TextToSpeech.Engine.KEY_PARAM_STREAM,
                         AudioManager.STREAM_NOTIFICATION.toString())
                 tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, hash)
+            }
+        }
+
+        changeTextSize.setOnClickListener{
+            numeric = textSize.text.matches("-?\\d+(\\.\\d+)?".toRegex())
+            if(numeric) {
+                bookDetails.setTextSize(textSize.text.toString().toFloat())
             }
         }
     }

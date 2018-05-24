@@ -21,7 +21,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".BookDetails"></activity>
+        <activity
+            android:name=".BookDetails"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
     </application>
 
 

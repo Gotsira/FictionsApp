@@ -12,12 +12,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
 
-    private val bookListFragment: BookListFragment = BookListFragment()
+    private lateinit var bookListFragment: BookListFragment
     private var mSectionsPagerAdapter: ShowAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        bookListFragment = BookListFragment()
 
         mSectionsPagerAdapter = ShowAdapter(supportFragmentManager)
 
